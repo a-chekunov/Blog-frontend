@@ -11,7 +11,9 @@ const PostItem = ({ _id, title, createdAt, onRemove }) => {
 			</Link>
 			<p>
 				<i>Posted on {createdAt}</i>
-				<a href="#" onClick={onRemove}>Remove</a>
+				<a href="#" onClick={onRemove}>
+					Remove
+				</a>
 				<Link to={`/post/${_id}/edit`}>Edit</Link>
 			</p>
 		</div>

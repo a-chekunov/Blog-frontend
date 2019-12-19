@@ -1,22 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { HeaderBlock, FullPost, AddForm, NotFound } from "components";
-import { PostsList } from "modules";
+import { AddForm, NotFound } from "components";
+import { PostsList, HeaderBlock, FullPost } from "modules";
 
 const App = () => {
 	return (
-		<div>
-			<HeaderBlock
-				title="Website title"
-				description="description"
-				imageUrl="https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-			/>
-			<div className="container">
-				<div className="content">
-					<div className="content">
-						<Router>
-							<div>
+		<div className="App">
+			<Router>
+				<div>
+					<HeaderBlock />
+					<div className="container">
+						<div className="content">
+							<div className="content">
 								<Switch>
 									<Route
 										exact
@@ -26,14 +22,7 @@ const App = () => {
 									<Route
 										path="/post/:id"
 										exact
-										component={() => {
-											return (
-												<FullPost
-													title="Article title"
-													createdAt={"" + new Date()}
-												/>
-											);
-										}}
+										component={FullPost}
 									/>
 									<Route
 										path="/post/:id/edit"
@@ -43,10 +32,10 @@ const App = () => {
 									<Route path="*" component={NotFound} />
 								</Switch>
 							</div>
-						</Router>
+						</div>
 					</div>
 				</div>
-			</div>
+			</Router>
 		</div>
 	);
 };
